@@ -33,7 +33,7 @@ useEffect(() => {
     }
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/reports", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/reports`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

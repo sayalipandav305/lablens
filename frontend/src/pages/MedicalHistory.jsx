@@ -58,7 +58,7 @@ const handleDownloadPDF = async () => {
 
     // Fetch complete user profile
     const userProfileResponse = await fetch(
-      "http://127.0.0.1:8000/user-profile",
+      `${import.meta.env.VITE_API_URL}/user-profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -72,7 +72,7 @@ const handleDownloadPDF = async () => {
 
     // Fetch medical profile
     const medicalProfileResponse = await fetch(
-      "http://127.0.0.1:8000/profile",
+      `${import.meta.env.VITE_API_URL}/profile`,
       {
         headers: {
           Authorization: `Bearer ${token}`,
@@ -442,7 +442,7 @@ const [availableParameters, setAvailableParameters] = useState([]);
 
       try {
         const response = await fetch(
-          "http://127.0.0.1:8000/medical-history",
+          `${import.meta.env.VITE_API_URL}/medical-history`,
           {
             method: "GET",
             headers: {
@@ -729,7 +729,7 @@ const handleDeleteReport = async (reportId) => {
     }
 
     const response = await fetch(
-      `http://127.0.0.1:8000/reports/${reportId}`,
+      `${import.meta.env.VITE_API_URL}/reports/${reportId}`,
       {
         method: "DELETE",
         headers: {

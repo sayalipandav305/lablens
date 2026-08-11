@@ -1,6 +1,6 @@
 export async function googleAuth(credential) {
   const response = await fetch(
-    "http://127.0.0.1:8000/google-login",
+    `${import.meta.env.VITE_API_URL}/google-login`,
     {
       method: "POST",
       headers: {

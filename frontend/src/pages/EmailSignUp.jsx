@@ -92,7 +92,7 @@ export default function EmailSignup() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/send-signup-otp",
+        `${import.meta.env.VITE_API_URL}/send-signup-otp`,
         {
           method: "POST",
 
@@ -189,7 +189,7 @@ export default function EmailSignup() {
     try {
 
       const response = await fetch(
-        "http://127.0.0.1:8000/verify-signup-otp",
+       `${import.meta.env.VITE_API_URL}/verify-signup-otp`,
         {
           method: "POST",
 

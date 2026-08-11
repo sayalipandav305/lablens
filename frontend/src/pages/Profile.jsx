@@ -63,7 +63,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/user-profile",
+        `${import.meta.env.VITE_API_URL}/user-profile`,
         {
           method: "GET",
           headers: {
@@ -133,7 +133,7 @@ useEffect(() => {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/reports",
+        `${import.meta.env.VITE_API_URL}/reports`,
         {
           method: "GET",
           headers: {
@@ -198,7 +198,7 @@ console.log("IMAGE UPLOAD RESPONSE:", data);
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/user-profile",
+        `${import.meta.env.VITE_API_URL}/user-profile`,
         {
           method: "PUT",
           headers: {
@@ -407,7 +407,7 @@ console.log("IMAGE UPLOAD RESPONSE:", data);
 
     {profile.profile_image ? (
       <img
-        src={`http://127.0.0.1:8000${profile.profile_image}`}
+        src={`${import.meta.env.VITE_API_URL}${profile.profile_image}`}
         alt="Profile"
         className="w-full h-full object-cover"
       />
@@ -472,7 +472,7 @@ console.log("IMAGE UPLOAD RESPONSE:", data);
       try {
 
         const response = await fetch(
-          "http://127.0.0.1:8000/user-profile/profile-image",
+          `${import.meta.env.VITE_API_URL}/user-profile/profile-image`,
           {
             method: "POST",
             headers: {

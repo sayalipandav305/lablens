@@ -40,7 +40,7 @@ export default function MedicalProfile() {
 
   const fetchProfile = async () => {
   try {
-    const response = await fetch("http://127.0.0.1:8000/profile", {
+    const response = await fetch(`${import.meta.env.VITE_API_URL}/profile`, {
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -264,7 +264,7 @@ const saveProfile = async () => {
 
 console.log("Payload:", payload);
 
-const response = await fetch("http://127.0.0.1:8000/profile", {
+const response = await fetch(`${import.meta.env.VITE_API_URL}/profile`, {
   method: "PUT",
   headers: {
     "Content-Type": "application/json",
