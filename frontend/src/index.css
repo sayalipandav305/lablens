@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: "Sansation";
+  src: url("./assets/fonts/Sansation_Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+body {
+  font-family: "Manrope", sans-serif;
+}
+.anton-heading {
+  font-family: "Anton", sans-serif;
+  letter-spacing: 0.5px;
+  line-height: 1.1;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ecg-line{
+    stroke-dasharray:1200;
+    stroke-dashoffset:1200;
+    animation:drawECG 4s linear infinite;
+}
+
+@keyframes drawECG{
+
+    0%{
+        stroke-dashoffset:1200;
+    }
+
+    70%{
+        stroke-dashoffset:0;
+    }
+
+    100%{
+        stroke-dashoffset:-1200;
+    }
+
+}
+@keyframes floatSlow {
+  0%,100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes floatReverse {
+  0%,100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(18px);
+  }
+}
+
+@keyframes floatMedium {
+  0%,100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(2deg);
+  }
+}
+
+.animate-floatSlow {
+  animation: floatSlow 6s ease-in-out infinite;
+}
+
+.animate-floatReverse {
+  animation: floatReverse 7s ease-in-out infinite;
+}
+
+.animate-floatMedium {
+  animation: floatMedium 5s ease-in-out infinite;
+}
