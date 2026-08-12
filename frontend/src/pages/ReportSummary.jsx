@@ -710,9 +710,9 @@ const healthyInsight =
 
 
   {/* Temporary JSON */}
+  {/*
+  Temporary JSON
   <div>
-
-
     <h2 className="text-2xl sm:text-3xl font-bold mb-6">
       Report Summary
     </h2>
@@ -720,9 +720,8 @@ const healthyInsight =
     <pre className="bg-gray-50 border rounded-xl p-4 sm:p-6 overflow-x-auto text-xs sm:text-sm">
       {JSON.stringify(result, null, 2)}
     </pre>
-
   </div>
-
+*/}
 </div>
 </div>
 
