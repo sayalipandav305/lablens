@@ -1,18 +1,710 @@
-LABLENS ROADMAP
+# 🧪 LabLens
 
-Phase 1
-✓ Upload PDF
-✓ Extract Text
+**AI-Powered Medical Report Analysis & Visualization**
 
-Phase 2
-□ Gemini Extraction
-□ Structured JSON
+LabLens is a web application that helps users understand medical reports in a simple and visual way. Users can upload medical reports in **PDF format**, and LabLens extracts the report data, analyzes test results, identifies abnormal values, and presents the information through an easy-to-understand interface.
 
-Phase 3
-□ Dashboard
-□ Charts
-□ Health Score
+> ⚠️ **Disclaimer:** LabLens is an educational/informational tool and is **not a substitute for professional medical advice, diagnosis, or treatment.**
 
-Phase 4
-□ Medical History
-□ Doctor Consultation
+---
+
+## ✨ Features
+
+* 📄 Upload medical reports in PDF format
+* 🔍 Extract text and test information from reports
+* 🤖 AI-powered medical report data extraction using Google Gemini
+* 📊 Analyze laboratory parameters and their status
+* 🟢 Identify normal values
+* 🟡 Identify values that may require attention
+* 🔴 Identify abnormal/high/low values
+* 💡 Generate easy-to-understand insights
+* 📈 Visualize report information
+* 🗂️ Maintain medical report/history information
+* 💻 Responsive web interface
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+* React
+* Vite
+* Tailwind CSS
+* JavaScript
+* Recharts
+
+### Backend
+
+* Python
+* FastAPI
+* Uvicorn
+* pdfplumber
+
+### AI
+
+* Google Gemini API
+* Gemini 2.5 Flash
+
+### Development Tools
+
+* Git
+* GitHub
+* npm
+* Python Virtual Environment
+
+---
+
+# 📁 Project Structure
+
+```text
+LabLens/
+│
+├── backend/
+│   ├── main.py
+│   ├── requirements.txt
+│   ├── .env
+│   │
+│   ├── services/
+│   │   ├── parser.py
+│   │   ├── analyzer.py
+│   │   └── parameter_dictionary.py
+│   │
+│   ├── uploads/
+│   └── ...
+│
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   └── ...
+│   │
+│   ├── package.json
+│   ├── vite.config.js
+│   └── ...
+│
+├── sample_reports/
+│   └── ...
+│
+├── .gitignore
+└── README.md
+```
+
+---
+
+# 🚀 Getting Started
+
+Follow the steps below to run LabLens on a new laptop.
+
+## 1. Prerequisites
+
+Make sure the following software is installed.
+
+### Required
+
+* **Git**
+* **Python 3.10+**
+* **Node.js 18+**
+* **npm**
+
+Check your installations:
+
+```bash
+git --version
+python3 --version
+node --version
+npm --version
+```
+
+If these commands return version numbers, you're ready to continue.
+
+---
+
+# 📥 2. Clone the Repository
+
+Open Terminal / Command Prompt and run:
+
+```bash
+```
+
+Then enter the project directory:
+
+```bash
+cd LabLens
+```
+
+> Replace `YOUR_GITHUB_REPOSITORY_URL` with the actual GitHub repository URL.
+
+---
+
+# 🐍 3. Backend Setup
+
+Open a terminal and navigate to the backend:
+
+```bash
+cd backend
+```
+
+## Create a Virtual Environment
+
+### macOS / Linux
+
+```bash
+python3 -m venv venv
+```
+
+Activate it:
+
+```bash
+source venv/bin/activate
+```
+
+### Windows
+
+```bash
+python -m venv venv
+```
+
+Activate it:
+
+```bash
+venv\Scripts\activate
+```
+
+After activation, your terminal should show something similar to:
+
+```text
+(venv)
+```
+
+---
+
+# 📦 4. Install Backend Dependencies
+
+With the virtual environment activated:
+
+```bash
+pip install -r requirements.txt
+```
+
+If `pip` does not work, try:
+
+```bash
+python3 -m pip install -r requirements.txt
+```
+
+on macOS/Linux, or:
+
+```bash
+python -m pip install -r requirements.txt
+```
+
+on Windows.
+
+---
+
+# 🔐 5. Configure the Gemini API Key
+
+LabLens uses the **Google Gemini API** for AI-based extraction and analysis.
+
+Create a file named:
+
+```text
+.env
+```
+
+inside the `backend` directory.
+
+Your structure should look like:
+
+```text
+backend/
+├── .env
+├── main.py
+├── requirements.txt
+└── services/
+```
+
+Add:
+
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+Replace:
+
+```text
+YOUR_GEMINI_API_KEY
+```
+
+with your actual Gemini API key.
+
+### Important
+
+**Never commit your `.env` file to GitHub.**
+
+Make sure `.gitignore` contains:
+
+```gitignore
+.env
+venv/
+__pycache__/
+uploads/
+```
+
+---
+
+# ▶️ 6. Start the Backend
+
+From the `backend` directory:
+
+```bash
+uvicorn main:app --reload
+```
+
+The backend should start at:
+
+```text
+http://127.0.0.1:8000
+```
+
+You can also open the FastAPI documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+If the Swagger UI opens, the backend is running successfully. 🎉
+
+---
+
+# ⚛️ 7. Frontend Setup
+
+Open a **new terminal window**.
+
+Navigate to the frontend:
+
+```bash
+cd LabLens/frontend
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+This installs everything specified in `package.json`.
+
+---
+
+# ▶️ 8. Start the Frontend
+
+Run:
+
+```bash
+npm run dev
+```
+
+Vite will provide a local URL similar to:
+
+```text
+http://localhost:5173
+```
+
+Open that URL in your browser.
+
+---
+
+# 🔄 Running the Complete Application
+
+You need **two terminals** running at the same time.
+
+### Terminal 1 — Backend
+
+```bash
+cd LabLens/backend
+
+source venv/bin/activate
+
+uvicorn main:app --reload
+```
+
+### Terminal 2 — Frontend
+
+```bash
+cd LabLens/frontend
+
+npm install
+npm run dev
+```
+
+Then open:
+
+```text
+http://localhost:5173
+```
+
+---
+
+# 📄 9. Testing LabLens
+
+Once the application is running:
+
+1. Open the frontend.
+2. Upload a medical report PDF.
+3. The frontend sends the PDF to the FastAPI backend.
+4. The backend extracts text using `pdfplumber`.
+5. Gemini processes the extracted information.
+6. The analyzer identifies laboratory parameters and their status.
+7. The processed data is returned to the frontend.
+8. The frontend displays the results.
+
+---
+
+# 🧪 Sample Reports
+
+Sample medical reports can be placed inside:
+
+```text
+sample_reports/
+```
+
+You can use these reports to test the application without using real personal medical documents.
+
+### Recommended testing
+
+Use synthetic/sample reports containing parameters such as:
+
+* Hemoglobin
+* Platelet Count
+* Vitamin D
+* HDL Cholesterol
+* LDL Cholesterol
+* Total Cholesterol
+* Blood Glucose
+* WBC Count
+* RBC Count
+
+---
+
+# 🔌 API
+
+The backend currently provides an upload endpoint:
+
+```text
+POST /upload
+```
+
+The endpoint accepts a medical report PDF and processes it.
+
+### Example API documentation
+
+Once the backend is running, visit:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+FastAPI automatically generates interactive API documentation.
+
+---
+
+# 🌐 Backend & Frontend Communication
+
+During local development:
+
+```text
+React/Vite
+    │
+    │ HTTP Request
+    ▼
+FastAPI Backend
+    │
+    ├── PDF Parser
+    │
+    ├── Gemini AI
+    │
+    └── Analyzer
+    │
+    ▼
+Structured Report Data
+    │
+    ▼
+React Frontend
+```
+
+The frontend communicates with the backend through the backend API.
+
+---
+
+# ⚙️ Environment Variables
+
+The backend requires:
+
+```env
+GEMINI_API_KEY=your_api_key_here
+```
+
+If additional environment variables are added later, document them here.
+
+---
+
+# 🧹 Common Problems & Solutions
+
+## `python3: command not found`
+
+Install Python and verify:
+
+```bash
+python3 --version
+```
+
+On Windows, use:
+
+```bash
+python --version
+```
+
+---
+
+## `pip install` fails
+
+Make sure the virtual environment is activated:
+
+```bash
+source venv/bin/activate
+```
+
+Then:
+
+```bash
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+---
+
+## `npm: command not found`
+
+Install Node.js and verify:
+
+```bash
+node --version
+npm --version
+```
+
+---
+
+## `ModuleNotFoundError`
+
+Make sure the backend virtual environment is activated:
+
+```bash
+source venv/bin/activate
+```
+
+Then reinstall dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+## Gemini API Error
+
+Check that:
+
+1. `.env` exists inside `backend/`
+2. The API key is correct
+3. The variable name matches the code
+4. Your Gemini API quota is available
+
+Example:
+
+```env
+GEMINI_API_KEY=your_actual_key
+```
+
+Restart the backend after changing `.env`.
+
+---
+
+## Frontend cannot connect to backend
+
+Make sure both servers are running.
+
+Backend:
+
+```text
+http://127.0.0.1:8000
+```
+
+Frontend:
+
+```text
+http://localhost:5173
+```
+
+Also check that the API URL used in the frontend matches the backend URL.
+
+---
+
+## Port Already in Use
+
+If port `8000` is already being used, run FastAPI on another port:
+
+```bash
+uvicorn main:app --reload --port 8001
+```
+
+If the backend port changes, update the frontend API URL accordingly.
+
+---
+
+# 🔒 Security Notes
+
+Do not upload real medical reports containing personally identifiable information to an unsecured development environment.
+
+Never commit:
+
+```text
+.env
+venv/
+uploads/
+```
+
+or API keys/passwords to GitHub.
+
+If an API key is accidentally pushed to GitHub, revoke it immediately and generate a new one.
+
+---
+
+# 🧑‍💻 Development Workflow
+
+After cloning the project:
+
+```bash
+git pull
+```
+
+### Backend
+
+```bash
+cd backend
+source venv/bin/activate
+pip install -r requirements.txt
+uvicorn main:app --reload
+```
+
+### Frontend
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+# 📌 Important Git Files
+
+The repository should contain:
+
+```text
+README.md
+.gitignore
+backend/requirements.txt
+frontend/package.json
+```
+
+These files allow another developer to recreate the development environment.
+
+---
+
+# 📝 Before Pushing to GitHub
+
+Make sure you **DO NOT** push:
+
+```text
+.env
+venv/
+node_modules/
+__pycache__/
+uploads/
+*.pyc
+```
+
+A recommended `.gitignore`:
+
+```gitignore
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+.env.*
+
+# Uploaded files
+uploads/
+
+# Node
+node_modules/
+dist/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+```
+
+---
+
+# 🎯 Project Goal
+
+LabLens aims to make medical laboratory reports easier to understand by transforming complex medical data into a simple, visual, and accessible experience.
+
+Instead of presenting users with only numbers and medical terminology, LabLens focuses on:
+
+**Upload → Extract → Analyze → Understand → Visualize**
+
+---
+
+# 🚧 Future Improvements
+
+* 📊 Advanced medical data visualizations
+* 📱 Improved mobile responsiveness
+* 📈 Historical parameter tracking
+* 👤 User accounts
+* 🗂️ Medical report history
+* 🔔 Personalized health alerts
+* 🤖 Improved AI-based explanations
+* 📑 Support for additional report formats
+* ☁️ Cloud deployment
+* 🔐 Secure user authentication and data storage
+
+---
+
+# 👩‍💻 Authors
+
+Developed as an AI-powered healthcare information and visualization project.
+
+---
+
+## ⭐ If you found LabLens useful
+
+Feel free to star the repository and explore the project!
+
+**LabLens — Making medical reports easier to understand. 🧪📊**
